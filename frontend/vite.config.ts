@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true,
+    allowedHosts: ['all', 'cover-letter-generator-frontend.onrender.com'],
     port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
   },
   define: {
