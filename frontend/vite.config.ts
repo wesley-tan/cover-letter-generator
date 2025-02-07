@@ -9,6 +9,7 @@ export default defineConfig({
     host: true, // Expose to all networks
     port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
     // Add proxy for development API calls
+    allowedHosts: ['all'],
     proxy: {
       '/api': {
         target: process.env.VITE_API_URL || 'http://localhost:3000',
