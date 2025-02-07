@@ -120,16 +120,6 @@ Content-Type: application/json
 }
 ```
 
-### Job Analysis
-```
-POST /api/job/analyze
-Content-Type: application/json
-
-{
-  "jobDescription": string
-}
-```
-
 ## Testing
 
 Run frontend tests:
@@ -142,24 +132,4 @@ Run backend tests:
 ```bash
 cd backend
 npm test
-```
-
-## Deployment
-
-1. Build the frontend
-```bash
-cd frontend
-npm run build
-```
-
-2. Build the backend
-```bash
-cd backend
-npm run build
-```
-
-3. Start production server
-```bash
-cd backend
-npm start
 ```
