@@ -6,7 +6,7 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: 'https://cover-letter-generator-frontend.onrender.com/',
+    host: true,
     port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
   },
   resolve: {
