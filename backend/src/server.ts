@@ -10,23 +10,13 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://cover-letter-generator-frontend.onrender.com']
-    : ['http://localhost:5173'],
+  origin: '*',  // Temporarily allow all origins for testing
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
 
 app.use(express.json());
-
-// Increase timeout limits
-const server = app.listen(Number(process.env.PORT) || 3000, '0.0.0.0', () => {
-  console.log(`Server running on port ${process.env.PORT || 3000}`);
-});
-
-// Set keep-alive timeout to 120 seconds (120000 ms)
-server.keepAliveTimeout = 120000;
-// Set headers timeout to 120 seconds (120000 ms)
-server.headersTimeout = 120000;
 
 // Health check endpoint
 app.get('/', (req, res) => {
@@ -43,6 +33,11 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
     error: 'Internal Server Error',
     message: process.env.NODE_ENV === 'development' ? err.message : undefined
   });
+});
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 export default app;
