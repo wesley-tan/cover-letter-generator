@@ -8,6 +8,7 @@ export default defineConfig({
   server: {
     host: true,
     port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
+    allowedHosts: ['all', 'cover-letter-generator-frontend.onrender.com'],
   },
   resolve: {
     alias: {
