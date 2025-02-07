@@ -15,23 +15,4 @@ export const App = () => {
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/`);
         console.log('Backend connection successful:', response.data);
       } catch (error) {
-        console.error('Backend connection failed:', error);
-      }
-    };
-    
-    testConnection();
-  }, []);
-
-  return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/history" element={<HistoryPage />} />
-          <Route path="/templates" element={<TemplatesPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </Layout>
-    </Router>
-  );
-};
+        co

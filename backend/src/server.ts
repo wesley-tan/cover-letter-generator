@@ -21,14 +21,15 @@ app.use(cors({
 
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
+// For Render deployment
+const PORT = Number(process.env.PORT) || 10000;
 
 // Start server
 const startServer = async () => {
   try {
-    const server = app.listen(PORT, () => {
+    const server = app.listen(PORT, '0.0.0.0', () => {
       console.log(`Server running on port ${PORT}`);
-      console.log(`Server address: http://localhost:${PORT}`);
+      console.log(`Server address: http://0.0.0.0:${PORT}`);
     });
 
     // Set keep-alive timeout to 120 seconds
