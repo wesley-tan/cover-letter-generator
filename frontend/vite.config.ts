@@ -8,7 +8,9 @@ export default defineConfig({
   server: {
     host: true,
     port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
-    allowedHosts: ['all', 'cover-letter-generator-frontend.onrender.com'],
+  },
+  define: {
+    'process.env.VITE_API_URL': JSON.stringify(process.env.VITE_API_URL || 'https://your-backend-url.onrender.com/api')
   },
   resolve: {
     alias: {
